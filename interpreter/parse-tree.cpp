@@ -156,8 +156,21 @@ TermPrime *ParseTermPrime(antlr4::CommonTokenStream &tokens) {
 }
 
 int main(int argc, const char *argv[]) {
+    if (argc != 2) {
+        std::cout << "Usage: mitscript-parse-tree <filename>\n";
+        return -1;
+    }
+
+    std::ifstream file;
+    file.open(argv[1]);
+
+    if (!file.is_open()) {
+        std::cout << "Failed to open file: " << argv[1] << "\n";
+        return -1;
+    }
+
     // Create lexer
-    antlr4::ANTLRInputStream input(std::cin);
+    antlr4::ANTLRInputStream input(file);
     MITScript lexer(&input);
     antlr4::CommonTokenStream tokens(&lexer);
 

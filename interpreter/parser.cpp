@@ -66,8 +66,6 @@ bool TermPrime(antlr4::CommonTokenStream &tokens) {
 }
 
 int main(int argc, const char *argv[]) {
-    // We will now have the interpreter take the input
-    // program from a file
     if (argc != 2) {
         std::cout << "Usage: mitscript-parser <filename>\n";
         return -1;

@@ -1,13 +1,13 @@
 all: parser parse-tree interpreter
 
 parser: MITScriptLexer.cpp MITScriptParser.cpp parser.cpp
-	g++ -std=c++14 -Wno-attributes -Iinclude MITScript.cpp parser.cpp lib/libantlr4-runtime.a -o mitscript-parser 
+	g++ -std=c++17 -Wno-attributes -Iinclude MITScript.cpp parser.cpp lib/libantlr4-runtime.a -o mitscript-parser
 
-parse-tree: MITScriptLexer.cpp MITScriptParser.cpp parser.cpp
-	g++ -std=c++14 -Wno-attributes -Iinclude MITScript.cpp parse-tree.cpp lib/libantlr4-runtime.a -o mitscript-parse-tree 
+parse-tree: MITScriptLexer.cpp MITScriptParser.cpp parse-tree.cpp
+	g++ -std=c++17 -Wno-attributes -Iinclude MITScript.cpp parse-tree.cpp lib/libantlr4-runtime.a -o mitscript-parse-tree
 
 interpreter: MITScriptLexer.cpp MITScriptParser.cpp interpreter.cpp
-	g++ -std=c++14 -Wno-attributes -Iinclude MITScript.cpp interpreter.cpp lib/libantlr4-runtime.a -o mitscript
+	g++ -std=c++17 -Wno-attributes -Iinclude MITScript.cpp interpreter.cpp lib/libantlr4-runtime.a -o mitscript
 
 
 MITScriptLexer.cpp MITScriptParser.cpp: MITScript.g.intermediate
