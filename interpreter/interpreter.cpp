@@ -15,7 +15,7 @@ int main(int argc, const char *argv[]) {
     // program from a file
     if (argc != 2) {
         std::cout << "Usage: mitscript <filename>\n";
-        return 1;
+        return -1;
     }
 
     std::ifstream file;
@@ -23,7 +23,7 @@ int main(int argc, const char *argv[]) {
 
     if (!file.is_open()) {
         std::cout << "Failed to open file: " << argv[1] << "\n";
-        return 1;
+        return -1;
     }
 
     // Create lexer
