@@ -64,7 +64,7 @@ cmake --build cmake-build-grading
 This will put the executables inside `cmake-build-grading/interpreter/*`.
 You can use the symlinks that `build.sh` creates, but you don't have to.
 
-##### Customization
+##### Further customization
 CMake has a lot of customization options. E.g. to compile without optimization
 and with debugging symbols, do the following:
 ```sh
@@ -88,10 +88,18 @@ cmake -D CMAKE_BUILD_TYPE=Debug -G Ninja -S . -B cmake-build-debug
 
 # build step stays the same, just make sure Ninja is installed.
 ```
+##### Tests
+By default, tests won't build.
+To build them, add `-D BUILD_TESTS=ON` (before the `-S` flag) to the configure step:
+```sh
+cmake -D CMAKE_BUILD_TYPE=Debug -D BUILD_TESTS=ON -S . -B cmake-build-debug
+```
 
 #### Make
 Uncomment line 2 of `build.sh`, and you're all set. To run directly,
 just run `make` inside the `interpreter` directory. 
+
+Tests are not currently supported when using make.
 
 #### IDEs (CLion, Visual Studio Code, etc.)
 
@@ -103,4 +111,16 @@ Whether your parser is inside `interpreter/` or `cmake-build-*/interpreter`, inv
 
 ```sh
 [path/to/executable]/mitscript-parser [path/to/input/file]
+```
+
+#### Tests
+
+To run parser unit tests:
+
+- Create a test file (like `test/interpreter/example-test.cpp`)
+- Add the test file to the correct target in CMakeLists.txt
+- Build the tests (described above)
+- Run the tests:
+```sh
+cmake-build-debug/test/interpreter/parser-tests [flags]
 ```
