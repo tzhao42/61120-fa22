@@ -48,7 +48,11 @@ otherwise, you should modify it to fit your needs.
 You can also use the script to build the code locally, or you can
 run the commands directly as described below.
 #### CMake
-To avoid starting every build from scratch, you can run the CMake build commands directly
+If you'd like to learn more about CMake, you can read the first
+few chapters of the [tutorial](https://cmake.org/cmake/help/latest/guide/tutorial/index.html).
+If you have more questions, ask on Piazza!
+
+To avoid starting every build from scratch, you can run the CMake build commands directly.
 
 ```sh
 # This is called the configuration step and it prepares the build system inside cmake-build-grading.
