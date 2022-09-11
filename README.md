@@ -25,6 +25,27 @@ Here is an Ubuntu 22.04 (LTS) virtual machine with these dependencies already in
 [link](https://drive.google.com/file/d/1kr1b8pTCcWag4sDHVnenqPYmEgCJgLYU/view?usp=sharing).
 
 Password: IwillgetanA
+#### Docker
+
+If you want to use Docker instead of the virtual machine, you should:
+1. [Install Docker Desktop](https://docs.docker.com/get-docker/)
+2. Download the docker image
+```sh
+docker pull lgovedic/mit-61120:0.1
+```
+3. Start a docker container.
+```sh
+docker run -it --rm --name=61120 --mount type=bind,source=${PWD},target=/src lgovedic/mit-61120:0.1 bash
+```
+This will start the container, map the current repository in it, and
+finally pull up a shell inside the container.
+Once the shell starts, just write commands like you were using a regular
+Limux terminal.
+
+```sh
+root@221b746bd366:/# cd src
+root@221b746bd366:/src# cmake ... # or  make ...
+```
 
 ### Updating
 
