@@ -7,7 +7,7 @@ TOTAL=0
 COUNT=0
 
 for filename in $TESTS/bad*.mit; do
-    OUT=$(cat $filename | $PARSER)
+    OUT=$($PARSER $filename)
     CODE=$?
     if [[ $CODE -eq 0 ]] && [[ $OUT != *"Error"* ]]; then
         echo "Fail: $(basename $filename) (exit code $CODE)"
@@ -18,7 +18,7 @@ for filename in $TESTS/bad*.mit; do
 done
 
 for filename in $TESTS/good*.mit; do
-    OUT=$(cat $filename | $PARSER)
+    OUT=$($PARSER $filename)
     CODE=$?
     if [[ $CODE -ne 0 ]] || [[ $OUT = *"Error"* ]]; then
         echo "Fail: $(basename $filename) (exit code $CODE)"
