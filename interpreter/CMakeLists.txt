@@ -28,6 +28,9 @@ target_link_libraries(mitscript-parser ParserSources)
 add_executable(mitscript-parse-tree parse-tree.cpp)
 target_link_libraries(mitscript-parse-tree MITScriptGrammar)
 
+add_executable(mitscript-parser-unique-ptr parser-unique-ptr.cpp)
+target_link_libraries(mitscript-parser-unique-ptr MITScriptGrammar)
+
 
 # Interpreter sources
 add_library(InterpreterSources OBJECT
