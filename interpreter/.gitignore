@@ -5,3 +5,4 @@
 /mitscript
 /mitscript-parse-tree
 /mitscript-parser
+/mitscript-parser-unique-ptr
