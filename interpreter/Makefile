@@ -6,6 +6,9 @@ parser: MITScriptLexer.cpp MITScriptParser.cpp parser.cpp
 parse-tree: MITScriptLexer.cpp MITScriptParser.cpp parse-tree.cpp
 	g++ -std=c++17 -Wno-attributes -Iinclude MITScript.cpp parse-tree.cpp lib/libantlr4-runtime.a -o mitscript-parse-tree
 
+parser-unique-ptr: MITScriptLexer.cpp MITScriptParser.cpp parser-unique-ptr.cpp
+	g++ -std=c++17 -Wno-attributes -Iinclude MITScript.cpp parser-unique-ptr.cpp lib/libantlr4-runtime.a -o mitscript-parser-unique-ptr
+
 interpreter: MITScriptLexer.cpp MITScriptParser.cpp interpreter.cpp
 	g++ -std=c++17 -Wno-attributes -Iinclude MITScript.cpp interpreter.cpp lib/libantlr4-runtime.a -o mitscript
 
