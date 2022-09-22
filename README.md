@@ -35,7 +35,7 @@ docker pull lgovedic/mit-61120:0.1
 ```
 3. Start a docker container.
 ```sh
-docker run -it --rm --name=61120 --mount type=bind,source=${PWD},target=/src lgovedic/mit-61120:0.1 bash
+docker run -it --rm --cap-add=SYS_PTRACE --security-opt seccomp=unconfined --name=61120 --mount type=bind,source=${PWD},target=/src lgovedic/mit-61120:0.1 bash
 ```
 This will start the container, map the current repository in it, and
 finally pull up a shell inside the container.
