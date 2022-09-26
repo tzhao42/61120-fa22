@@ -3,10 +3,12 @@
 TESTS=$1
 PARSER=$2
 
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+
 TOTAL=0
 COUNT=0
 
-for filename in $TESTS/bad*.mit; do
+for filename in $SCRIPT_DIR/$TESTS/bad*.mit; do
     OUT=$($PARSER $filename)
     CODE=$?
     if [[ $CODE -eq 0 ]] && [[ $OUT != *"Error"* ]]; then
@@ -17,7 +19,7 @@ for filename in $TESTS/bad*.mit; do
     TOTAL=$((TOTAL + 1))
 done
 
-for filename in $TESTS/good*.mit; do
+for filename in $SCRIPT_DIR/$TESTS/good*.mit; do
     OUT=$($PARSER $filename)
     CODE=$?
     if [[ $CODE -ne 0 ]] || [[ $OUT = *"Error"* ]]; then
