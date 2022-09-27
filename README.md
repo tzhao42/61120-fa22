@@ -40,7 +40,7 @@ docker run -it --rm --cap-add=SYS_PTRACE --security-opt seccomp=unconfined --nam
 This will start the container, map the current repository in it, and
 finally pull up a shell inside the container.
 Once the shell starts, just write commands like you were using a regular
-Limux terminal.
+Linux terminal.
 
 ```sh
 root@221b746bd366:/# cd src
